@@ -36,7 +36,7 @@ $riwayat = query("SELECT * FROM izin ORDER BY id_surat DESC LIMIT $awalData, $ju
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <title>ASI | Home</title>
+    <title>ASI | Riwayat</title>
     </head>
     <body class="bg">
 
