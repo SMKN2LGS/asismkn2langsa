@@ -31,44 +31,46 @@ function tgl_indo($tanggal){
 	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
 
-function getDay($date){
- $datetime = DateTime::createFromFormat('Y-m-d', $date);
- return $datetime->format('l');
+function hari_ini(){
+	$hari = date ("D");
+ 
+	switch($hari){
+		case 'Sun':
+			$hari_ini = "Minggu";
+		break;
+ 
+		case 'Mon':			
+			$hari_ini = "Senin";
+		break;
+ 
+		case 'Tue':
+			$hari_ini = "Selasa";
+		break;
+ 
+		case 'Wed':
+			$hari_ini = "Rabu";
+		break;
+ 
+		case 'Thu':
+			$hari_ini = "Kamis";
+		break;
+ 
+		case 'Fri':
+			$hari_ini = "Jumat";
+		break;
+ 
+		case 'Sat':
+			$hari_ini = "Sabtu";
+		break;
+		
+		default:
+			$hari_ini = "Tidak di ketahui";		
+		break;
+	}
+
+    return $hari_ini;
+ 
 }
-
-function getHari($date){
- $day=getDay($date);
- switch ($day) {
-  case 'Sunday':
-   $hari = 'Minggu';
-   break;
-  case 'Monday':
-   $hari = 'Senin';
-   break;
-  case 'Tuesday':
-   $hari = 'Selasa';
-   break;
-  case 'Wednesday':
-   $hari = 'Rabu';
-   break;
-  case 'Thursday':
-   $hari = 'Kamis';
-   break;
-  case 'Friday':
-   $hari = 'Jum\'at';
-   break;
-  case 'Saturday':
-   $hari = 'Sabtu';
-   break;
-  default:
-   $hari = 'Tidak ada';
-   break;
- }
- return $hari;
-}
-
-
-$date = date('y-m-d');
 
 ?>
 <!doctype html>
@@ -95,7 +97,8 @@ $date = date('y-m-d');
         <div class="row mt-5">
             <div class="col-md-6 d-flex align-items-center">
                 <div class="title">
-                <h5 class="mb-5"><?php echo getHari($date); echo ', '; echo tgl_indo(date( 'Y-m-d')); ?></h5>
+                <?php date_default_timezone_set('Asia/Jakarta'); ?>
+                <h5 class="mb-5"><?php echo hari_ini(); echo ', '; echo tgl_indo(date( 'Y-m-d')); ?></h5>
                     <h2>Aplikasi Surat Izin <br> SMK Negeri 2 Langsa</h2>
                     <p>Surat izin merupakan surat yang berisi keterangan pada sekolah, instansi, unversitas, ataupun tempat kerja dikarenakan adanya keperluan yang tidak dapat ditinggalkan sehingga tidak dapat hadir seperti biasanya. Surat izin harus dibuat sebenar-benarnya dan dapat dipertanggungjawabkan.</p>
 
