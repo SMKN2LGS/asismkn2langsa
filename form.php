@@ -120,6 +120,7 @@ function tgl_indo($tanggal){
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label for="jurusan" class="form-label">Jurusan</label>
+                                <?php date_default_timezone_set('Asia/Jakarta'); ?>
                                 <input type="text" name="jurusan" class="form-control" id="jurusan" value="<?= $siswa["jurusan"] ?>" readonly>
                             </div>
                         </div>
